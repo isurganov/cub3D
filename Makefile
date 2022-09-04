@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/04 20:55:51 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/04 22:41:46 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,37 +27,36 @@ OBJ_PATH 	=	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.o)))
 
 CC			=	gcc
 FLAGS		=	-Wall -Wextra -Werror
-O_FLAG		=	#-O3 #-MD
+O_FLAG		=	-O3 #-MD
 MLX_FLAG	=	-Lminilibx -lmlx -framework OpenGL -framework AppKit -lz
+
+all				: $(NAME)
+
+$(NAME) 		: $(MINILIBX) $(OBJ_PATH) Makefile
+		$(CC) $(FLAGS) $(O_FLAG) -o $(NAME) $(OBJ_PATH) $(MLX_FLAG)
 
 $(OBJDIR)/%.o 	: $(SRCDIR)/%.c $(INC_PATH) Makefile
 		@mkdir -p $(OBJDIR)
 		$(CC) $(FLAGS) $(O_FLAG) -o $@ -c $<
 
-all			: $(NAME)
-
-$(NAME) 	: $(MINILIBX) $(OBJ_PATH) Makefile
-		$(CC) $(FLAGS) $(O_FLAG) -o $(NAME) $(OBJ_PATH) $(MLX_FLAG)
-
-$(MINILIBX)	:
+$(MINILIBX)		:
 		make -C minilibx
-		cp $(MINILIBX) .
 
-clean		:
+clean			:
 		@rm -rf $(OBJDIR)
 		@rm -f	libmlx.a
 		@make -C minilibx clean
 		@echo "Removing obj"
 
-fclean		:	clean
+fclean			:	clean
 		@rm -f $(NAME)
 		@echo "Removing all"
 
-re			:  fclean all
+re				:  fclean all
 
-test		:	$(NAME)
+test			:	$(NAME)
 		leaks --atExit -- ./$(NAME)
 
-.PHONY		: all clean fclean re
+.PHONY			: all clean fclean re
 
 #-include $(DEP_PATH)
