@@ -6,29 +6,31 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/04 12:28:09 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/04 20:55:51 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3D
 
-SRC			=	main.c\
+SRC			=	main.c \
+				fts_errors.c \
+				check_arg.c \
 
-OBJDIR		=	obj_dep
+OBJDIR		=	obj
 SRCDIR		=	src
 
 MINILIBX	=	minilibx/libmlx.a
-INC_PATH	= 	./includes/cub3D.h
+INC_PATH	= 	includes/cub3D.h
 SRC_PATH 	=	$(addprefix $(SRCDIR)/, $(SRC))
 OBJ_PATH 	=	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.o)))
 #DEP_PATH 	= 	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.d)))
 
 CC			=	gcc
-FLAGS		=	-Wall -Wextra #-Werror
-O_FLAG		=	-O3 #-MD
+FLAGS		=	-Wall -Wextra -Werror
+O_FLAG		=	#-O3 #-MD
 MLX_FLAG	=	-Lminilibx -lmlx -framework OpenGL -framework AppKit -lz
 
-$(OBJDIR)/%.o 	: $(SRC_PATH) $(INC_PATH) Makefile
+$(OBJDIR)/%.o 	: $(SRCDIR)/%.c $(INC_PATH) Makefile
 		@mkdir -p $(OBJDIR)
 		$(CC) $(FLAGS) $(O_FLAG) -o $@ -c $<
 
