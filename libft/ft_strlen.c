@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 19:39:37 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/05 09:30:47 by pleoma           ###   ########.fr       */
+/*   Created: 2021/10/04 14:13:37 by pleoma            #+#    #+#             */
+/*   Updated: 2022/04/18 12:54:26 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "libft.h"
 
-/*  Checks number of arguments and
-    the extension of map, requires
-    string.h for strcmp         */
-
-int    ft_wrong_argument(int argc, char *argv)
+size_t	ft_strlen(const char *str)
 {
-    char	*ext;
-    
-    if (argc != 2)
-        return(ft_mistake(BAD_ARGS));
-    ext = ft_strrchr(argv, '.');
-	if (!ext || ft_strcmp(ext, ".cub"))
-		return (ft_mistake(BAD_EXTS));
-    return (EXIT_SUCCESS);
+	size_t	coun;
+
+	coun = 0;
+	while (str[coun] != '\0')
+	{
+		coun++;
+	}
+	return (coun);
 }

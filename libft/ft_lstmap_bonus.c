@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 19:39:37 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/05 09:30:47 by pleoma           ###   ########.fr       */
+/*   Created: 2022/04/18 11:40:06 by pleoma            #+#    #+#             */
+/*   Updated: 2022/05/02 10:00:26 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "libft.h"
 
-/*  Checks number of arguments and
-    the extension of map, requires
-    string.h for strcmp         */
-
-int    ft_wrong_argument(int argc, char *argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    char	*ext;
-    
-    if (argc != 2)
-        return(ft_mistake(BAD_ARGS));
-    ext = ft_strrchr(argv, '.');
-	if (!ext || ft_strcmp(ext, ".cub"))
-		return (ft_mistake(BAD_EXTS));
-    return (EXIT_SUCCESS);
+	t_list	*new;
+	t_list	*new_elem;
+
+	if (!lst)
+		return (0);
+	new = NULL;
+	while (lst)
+	{
+		new_elem = ft_lstnew(f(lst->content));
+		if (!new_elem)
+		{
+			ft_lstclear(&new_elem, del);
+		}
+		ft_lstadd_back(&new, new_elem);
+		lst = lst->next;
+	}
+	return (new);
 }

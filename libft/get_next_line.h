@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 19:39:37 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/05 09:30:47 by pleoma           ###   ########.fr       */
+/*   Created: 2021/10/12 18:44:12 by pleoma            #+#    #+#             */
+/*   Updated: 2022/05/02 12:16:37 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-/*  Checks number of arguments and
-    the extension of map, requires
-    string.h for strcmp         */
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <limits.h>
 
-int    ft_wrong_argument(int argc, char *argv)
-{
-    char	*ext;
-    
-    if (argc != 2)
-        return(ft_mistake(BAD_ARGS));
-    ext = ft_strrchr(argv, '.');
-	if (!ext || ft_strcmp(ext, ".cub"))
-		return (ft_mistake(BAD_EXTS));
-    return (EXIT_SUCCESS);
-}
+# include   "libft.h"
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_get_buff_line(int fd, char *line);
+char	*ft_find_real_line(char *remain);
+char	*ft_get_next_buff_line(char *remain);
+
+#endif
