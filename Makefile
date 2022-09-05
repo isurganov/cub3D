@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/05 09:33:47 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/05 09:46:26 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ $(OBJDIR)/%.o 	: $(SRCDIR)/%.c $(INC_PATH) Makefile
 		$(CC) $(FLAGS) $(O_FLAG) -o $@ -c $<
 
 $(MINILIBX)		:
-		make -C minilibx
+		@make -C minilibx
 
 $(LIBFT)		:
-				@make -C libft
+		@make -C libft
 
 clean			:
 		@rm -rf $(OBJDIR)
