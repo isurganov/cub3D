@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/04 21:03:41 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/05 09:36:26 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB_3D_H
 
 # include "../minilibx/mlx.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
 # include <errno.h>
@@ -35,6 +36,9 @@
 int     ft_mistake(char *arg);
 
 //  check_arg.c //
-int    ft_wrong_argument(int argc, char **argv);
+int    ft_wrong_argument(int argc, char *argv);
+
+//  cub_3D.c //
+void    ft_cub3D(const char *map, int fd);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/04 20:55:51 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/05 09:46:26 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ NAME		=	cub3D
 SRC			=	main.c \
 				fts_errors.c \
 				check_arg.c \
+				cub3D.c \
 
 OBJDIR		=	obj
 SRCDIR		=	src
 
+LIBFT		=	libft/libft.a
 MINILIBX	=	minilibx/libmlx.a
 INC_PATH	= 	includes/cub3D.h
 SRC_PATH 	=	$(addprefix $(SRCDIR)/, $(SRC))
@@ -27,37 +29,41 @@ OBJ_PATH 	=	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.o)))
 
 CC			=	gcc
 FLAGS		=	-Wall -Wextra -Werror
-O_FLAG		=	#-O3 #-MD
+O_FLAG		=	-O3 #-MD
 MLX_FLAG	=	-Lminilibx -lmlx -framework OpenGL -framework AppKit -lz
+
+all				: $(NAME)
+
+$(NAME) 		: $(MINILIBX) $(LIBFT) $(OBJ_PATH) Makefile
+		$(CC) $(FLAGS) $(O_FLAG) $(OBJ_PATH) $(LIBFT) $(MLX_FLAG) -o $(NAME)
 
 $(OBJDIR)/%.o 	: $(SRCDIR)/%.c $(INC_PATH) Makefile
 		@mkdir -p $(OBJDIR)
 		$(CC) $(FLAGS) $(O_FLAG) -o $@ -c $<
 
-all			: $(NAME)
+$(MINILIBX)		:
+		@make -C minilibx
 
-$(NAME) 	: $(MINILIBX) $(OBJ_PATH) Makefile
-		$(CC) $(FLAGS) $(O_FLAG) -o $(NAME) $(OBJ_PATH) $(MLX_FLAG)
+$(LIBFT)		:
+		@make -C libft
 
-$(MINILIBX)	:
-		make -C minilibx
-		cp $(MINILIBX) .
-
-clean		:
+clean			:
 		@rm -rf $(OBJDIR)
 		@rm -f	libmlx.a
 		@make -C minilibx clean
+		@make -C libft clean
 		@echo "Removing obj"
 
-fclean		:	clean
+fclean			:	clean
 		@rm -f $(NAME)
+		@rm -f $(LIBFT)
 		@echo "Removing all"
 
-re			:  fclean all
+re				:  fclean all
 
-test		:	$(NAME)
+test			:	$(NAME)
 		leaks --atExit -- ./$(NAME)
 
-.PHONY		: all clean fclean re
+.PHONY			: all clean fclean re
 
 #-include $(DEP_PATH)
