@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/05 09:36:26 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/14 12:44:06 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@
 # define BAD_ARGS "Use: ./cub3d MAP_NAME.cub\n"
 # define BAD_EXTS "Extension must be .cub\n"
 # define BAD_FILE "Cannot open the map\n"
+
+typedef struct s_game
+{
+    unsigned int	map_lnght;
+	unsigned int	map_hght;
+    char			**map;
+
+    int             win_resolution_x;
+    int             win_resolution_y;
+
+    void	        *mlx;
+	void	        *mlx_win;
+}   t_game;
 
 //  fts_errors.c //
 int     ft_mistake(char *arg);
