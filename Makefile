@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/18 15:47:50 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/18 18:06:43 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC			=	main.c \
 				fts_errors.c \
 				ft_parcer.c \
 				cub3D.c \
+				inits.c \
+				start_draw.c \
 
 OBJDIR		=	obj
 SRCDIR		=	src

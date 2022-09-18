@@ -6,17 +6,11 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 09:33:51 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 16:57:24 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/18 18:47:29 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
-
-static void init_game_win(t_game *game)
-{
-    game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, WIN_WIDTH, WIN_HEIGHT,"Cub_3D");
-}
 
 static int     ft_open_file(char **argv)
 {
@@ -30,11 +24,13 @@ static int     ft_open_file(char **argv)
 
 void ft_cub3D(t_game *game, char **argv)
 {
-    //ft_init_data();
-    init_game_win(game);
+    ft_init_data(game);
+    ft_init_win(game);
     // init_game_hooks();
     ft_parcer(game, ft_open_file(argv));
-    // loop_hook();
+
+    draw_floor_ceiling(game); //DEL LATER
+    //mlx_loop_hook(game->mlx, game_start, &game);
     mlx_loop(game->mlx);
     return ;
 }

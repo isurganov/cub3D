@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 16:53:11 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/18 18:42:50 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,35 @@
 # define PI				3.14159265
 # define TWO_PI			6.28316530
 
+typedef struct s_map
+{
+	char	**map;
+    int		floor;
+	int		ceiling;
+}	t_map;
+
 typedef struct s_game
 {
     void	        *mlx;
 	void	        *win;
+    t_map           map;
 }   t_game;
 
 //  fts_errors.c //
 int     ft_mistake(char *arg);
 
 //  ft_parcer.c //
-void    ft_parcer(t_game *game, int file_descriptor);
+void	draw_floor_ceiling(t_game *game);
+void	ft_parcer(t_game *game, int file_descriptor);
 
 //  cub_3D.c //
-void    ft_cub3D(t_game *game, char **argv);
+void	ft_cub3D(t_game *game, char **argv);
+
+//  inits.c //
+void	ft_init_data(t_game *game);
+void	ft_init_win(t_game *game);
+
+//  stert_draw.c //
+int	game_start(t_game *game);
 
 #endif
