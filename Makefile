@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/05 09:46:26 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/18 15:47:50 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	cub3D
 
 SRC			=	main.c \
 				fts_errors.c \
-				check_arg.c \
+				ft_parcer.c \
 				cub3D.c \
 
 OBJDIR		=	obj
