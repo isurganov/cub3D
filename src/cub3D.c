@@ -6,46 +6,31 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 09:33:51 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/14 12:42:57 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/18 18:47:29 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-static void init_game_win(t_game *game)
+static int     ft_open_file(char **argv)
 {
-    game->mlx = mlx_init();
-    if (!game->mlx)
-        ft_mistake("Can not init mlx");
-	game->mlx_win = mlx_new_window(game->mlx,
-        game->win_resolution_x,
-        game->win_resolution_y,
-        "Cub_3D");
-    if(!game->mlx_win)
-        ft_mistake("Can not create mlx_new_window");
+    int file_descriptor;
+
+    file_descriptor = open(argv[1], O_RDONLY);
+	if (file_descriptor < 0)
+		return (ft_mistake(BAD_FILE));
+    return (file_descriptor);
 }
 
-static void init_game_info(t_game *game)
+void ft_cub3D(t_game *game, char **argv)
 {
-    // NOT FINISHED
-    game->win_resolution_x = 800;
-	game->win_resolution_y = 400;
-}
+    ft_init_data(game);
+    ft_init_win(game);
+    // init_game_hooks();
+    ft_parcer(game, ft_open_file(argv));
 
-
-void ft_cub3D(const char *map, int fd)
-{
-    t_game  game;
-
-    printf("map :%s\n",   map); //no
-    printf("fd :%i\n",    fd);  //no
-    init_game_info(&game);
-    //init_alloc_game(&game);
-    //parse_map;
-
-    init_game_win(&game);
-    
-    mlx_loop(game.mlx);
-
+    draw_floor_ceiling(game); //DEL LATER
+    //mlx_loop_hook(game->mlx, game_start, &game);
+    mlx_loop(game->mlx);
     return ;
 }

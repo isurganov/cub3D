@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 11:22:17 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 17:58:37 by pleoma           ###   ########.fr       */
+/*   Created: 2022/09/18 17:51:09 by pleoma            #+#    #+#             */
+/*   Updated: 2022/09/18 18:46:21 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-static void    ft_check_argument(int argc, char *argv)
+void ft_init_data(t_game *game)
 {
-    char	*ext;
-    
-    if (argc != 2)
-        ft_mistake(BAD_ARGS);
-    ext = ft_strrchr(argv, '.');
-	if (!ext || ft_strcmp(ext, ".cub"))
-		ft_mistake(BAD_EXTS);
+    game->map.map = NULL;
+    game->map.ceiling = 5555;   //-1
+	game->map.floor = 8547;     //-1
+    // ...
 }
 
-int main(int argc, char **argv)
+void ft_init_win(t_game *game)
 {
-	t_game game;
-
-	ft_check_argument(argc, argv[1]);
-	ft_cub3D(&game, argv);
-    return (EXIT_SUCCESS);
+    game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx, WIN_WIDTH, WIN_HEIGHT,"Cub_3D");
 }

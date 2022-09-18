@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 19:33:01 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/04 20:46:42 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/18 16:52:01 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int ft_mistake(char *arg)
 {
     fprintf(stderr, RED "Error: " WTH);
     fprintf(stderr, "%s", arg);
-    return(EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }

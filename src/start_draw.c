@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   start_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 11:22:17 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 17:58:37 by pleoma           ###   ########.fr       */
+/*   Created: 2022/09/18 18:06:47 by pleoma            #+#    #+#             */
+/*   Updated: 2022/09/18 18:46:25 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-static void    ft_check_argument(int argc, char *argv)
+void	draw_floor_ceiling(t_game *game)
 {
-    char	*ext;
-    
-    if (argc != 2)
-        ft_mistake(BAD_ARGS);
-    ext = ft_strrchr(argv, '.');
-	if (!ext || ft_strcmp(ext, ".cub"))
-		ft_mistake(BAD_EXTS);
+	int	x;
+	int	y;
+
+	x = -1;
+	while (++x < WIN_WIDTH)
+	{
+		y = -1;
+		while (++y < WIN_HEIGHT)
+		{
+			if (y < WIN_HEIGHT / 2)
+				mlx_pixel_put(game->mlx, game->win, x, y, game->map.ceiling);
+			else
+				mlx_pixel_put(game->mlx, game->win, x, y, game->map.floor);
+		}
+	}
 }
 
-int main(int argc, char **argv)
+int	game_start(t_game *game)
 {
-	t_game game;
-
-	ft_check_argument(argc, argv[1]);
-	ft_cub3D(&game, argv);
-    return (EXIT_SUCCESS);
+	//NEED OTHER "draw_floor_ceiling"
+	//draw_floor_ceiling(game);
+	
+	return (EXIT_SUCCESS);
 }
