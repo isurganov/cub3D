@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/19 13:57:12 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/19 16:31:50 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME		=	cub3D
 SRC			=	main.c \
 				fts_errors.c \
 				ft_parcer.c \
+				ft_parse_walls.c \
 				cub3D.c \
 				inits.c \
 				start_draw.c \
@@ -31,7 +32,7 @@ OBJ_PATH 	=	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.o)))
 #DEP_PATH 	= 	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.d)))
 
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	#-Wall -Wextra -Werror
 O_FLAG		=	-O3 #-MD
 MLX_FLAG	=	-Lminilibx -lmlx -framework OpenGL -framework AppKit -lz
 

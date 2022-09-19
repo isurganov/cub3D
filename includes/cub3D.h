@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/19 14:06:33 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/19 16:27:33 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ int     ft_mistake(char *arg);
 //  ft_parcer.c //
 void	draw_floor_ceiling(t_game *game);
 void	ft_parcer(t_game *game, int file_descriptor);
+
+//	ft_parce_walls.c //
+void	ft_pars_walls(char *line, t_game *game);
 
 //  cub_3D.c //
 void	ft_cub3D(t_game *game, char **argv);
