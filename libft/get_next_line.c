@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:42:28 by pleoma            #+#    #+#             */
-/*   Updated: 2022/05/02 12:15:57 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/19 14:20:24 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_get_buff_line(int fd, char *line)
 {
 	char	*buff;
 	int		bytes;
+	char	*tmp_for_strjoin;
 
 	bytes = 1;
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -30,7 +31,9 @@ char	*ft_get_buff_line(int fd, char *line)
 			return (NULL);
 		}
 		buff[bytes] = '\0';
-		line = ft_strjoin(line, buff);
+		tmp_for_strjoin = line;
+		line = ft_strjoin(tmp_for_strjoin, buff);
+		free(tmp_for_strjoin);
 	}
 	free (buff);
 	return (line);

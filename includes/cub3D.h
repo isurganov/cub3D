@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 18:42:50 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/19 16:27:33 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@
 # define KEY_M				46
 # define KEY_SPACE			49
 # define KEY_ENTER			36
-# define KEY_ESC 53
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
+# define KEY_ESC 			53
+# define KEY_W 				13
+# define KEY_A 				0
+# define KEY_S 				1
+# define KEY_D 				2
+# define KEY_WIN_CROSS 		17
 # define WIN_WIDTH  800  // 1280 // 1920
 # define WIN_HEIGHT 400 // 720 // 1080
 // # define T_WIDTH 64
@@ -54,17 +55,30 @@
 # define PI				3.14159265
 # define TWO_PI			6.28316530
 
+typedef struct s_data
+{
+	void	*img;
+	//void	*img_t[5];
+	char	*addr;
+	int		bits_per_pixel;		//bpp
+	int		line_length;		//ll
+	int		endian;
+}	t_data_img;
+
+
 typedef struct s_map
 {
 	char	**map;
-    int		floor;
-	int		ceiling;
+    int		floor;      //color code
+	int		ceiling;    //color code
 }	t_map;
 
 typedef struct s_game
 {
-    void	        *mlx;
-	void	        *win;
+	void			*mlx;
+	void			*win;
+
+	t_data_img		img;
     t_map           map;
 }   t_game;
 
@@ -75,14 +89,24 @@ int     ft_mistake(char *arg);
 void	draw_floor_ceiling(t_game *game);
 void	ft_parcer(t_game *game, int file_descriptor);
 
+//	ft_parce_walls.c //
+void	ft_pars_walls(char *line, t_game *game);
+
 //  cub_3D.c //
 void	ft_cub3D(t_game *game, char **argv);
 
 //  inits.c //
 void	ft_init_data(t_game *game);
 void	ft_init_win(t_game *game);
+void	ft_init_hooks(t_game *game);
 
 //  stert_draw.c //
-int	game_start(t_game *game);
+void	my_mlx_pixel_put(t_data_img *data, int x, int y, int color);
+void	draw_floor_ceiling(t_game *game);
+int		render_next_frame(t_game *game);
+
+//	hook_keys.c //
+int		exit_hook(t_game *game);
+int		key_hook(int key, t_game *game);
 
 #endif
