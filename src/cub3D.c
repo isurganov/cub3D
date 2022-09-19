@@ -6,7 +6,7 @@
 /*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 09:33:51 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/18 18:47:29 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/19 14:27:32 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ void ft_cub3D(t_game *game, char **argv)
 {
     ft_init_data(game);
     ft_init_win(game);
-    // init_game_hooks();
+    ft_init_hooks(game);
     ft_parcer(game, ft_open_file(argv));
-
-    draw_floor_ceiling(game); //DEL LATER
-    //mlx_loop_hook(game->mlx, game_start, &game);
+    mlx_loop_hook(game->mlx, render_next_frame, game);
     mlx_loop(game->mlx);
     return ;
 }

@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/18 18:06:43 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/19 13:57:12 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC			=	main.c \
 				cub3D.c \
 				inits.c \
 				start_draw.c \
+				hook_keys.c \
 
 OBJDIR		=	obj
 SRCDIR		=	src
@@ -64,7 +65,8 @@ fclean			:	clean
 re				:  fclean all
 
 test			:	$(NAME)
-		leaks --atExit -- ./$(NAME)
+#		leaks --atExit -- ./cub3D qqq
+		leaks --atExit -- ./cub3D maps/default.cub
 
 .PHONY			: all clean fclean re
 
