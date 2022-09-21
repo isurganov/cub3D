@@ -6,11 +6,21 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:47:40 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:09:10 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/21 13:54:05 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
+void	free_map(char **arr)
+{
+	int i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+}
 
 static void	single_line_parsing(char *line, t_game *game)
 {
@@ -22,7 +32,7 @@ static void	single_line_parsing(char *line, t_game *game)
 	if (ft_strchr("NSWE", line[i]))
 		ft_pars_walls(line + i, game);
 	if (ft_strchr("FC", line[i]))
-		//ft_pars_floor_ceiling(line, game);
+		ft_pars_floor_ceiling(line, game);
 	if (ft_strchr("01", line[i]))
 		//ft_pars_map(line, game);
 	free(line);

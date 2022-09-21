@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:51:09 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 10:21:02 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/21 13:58:35 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_init_data(t_game *game)
 	game->map.south_sprite = NULL;
 	game->map.west_sprite = NULL;
 	game->map.east_sprite = NULL;
-	game->map.ceiling = 5555;	//-1
-	game->map.floor = 8547;		//-1
+	game->map.ceiling = -1;
+	game->map.floor = -1;
 }
 
 void	ft_init_win(t_game *game)

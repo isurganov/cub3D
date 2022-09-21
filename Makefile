@@ -6,7 +6,7 @@
 #    By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/21 13:06:52 by ilya             ###   ########.fr        #
+#    Updated: 2022/09/21 13:55:52 by ilya             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRC			=	main.c \
 				ft_parcer.c \
 				ft_parse_walls.c \
 				ft_parse_check.c \
+				ft_parse_fc.c \
+				ft_parse_map.c \
 				cub3D.c \
 				inits.c \
 				start_draw.c \

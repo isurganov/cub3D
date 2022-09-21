@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:13:54 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/21 13:43:07 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,15 @@ typedef struct s_game
 int     ft_mistake(char *arg);
 
 //  ft_parcer.c //
+void	free_map(char **arr);
 void	draw_floor_ceiling(t_game *game);
 void	ft_parcer(t_game *game, int file_descriptor);
 
 //	ft_parce_walls.c //
 void	ft_pars_walls(char *line, t_game *game);
+
+//	ft_parse_fc.c //
+void    ft_pars_floor_ceiling(char *line, t_game *game);
 
 //	ft_parce_check.c //
 void ft_checker(t_game *game);
