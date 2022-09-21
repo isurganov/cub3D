@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:47:40 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:01:27 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/21 13:09:10 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_parcer(t_game *game, int file_descriptor)
 			break ;
 	}
     free(line);
-	//player
-	//ft_checker();
+	//ft_check_player();
+	ft_checker(game);
     close (file_descriptor);
 }

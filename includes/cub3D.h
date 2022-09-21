@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 12:23:46 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/21 13:13:54 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@
 # define BAD_FILE 		"Cannot open the file\n"
 # define BAD_SPR		"Cannot get texture addres\n"
 # define BAD_SPR_NAME	"Wrong name of texture\n"
-# define BAD_XPM		"Error: wrong xpm file\n"
+# define BAD_XPM		"wrong xpm file\n"
+# define BAD_LOAD_NSWE	"NWES didn't load\n"
+# define BAD_LOAD_FC	"FC didn't load\n"
 
 # define KEY_LEFT			123
 # define KEY_RIGHT			124
@@ -106,6 +108,9 @@ void	ft_parcer(t_game *game, int file_descriptor);
 
 //	ft_parce_walls.c //
 void	ft_pars_walls(char *line, t_game *game);
+
+//	ft_parce_check.c //
+void ft_checker(t_game *game);
 
 //  cub_3D.c //
 void	ft_cub3D(t_game *game, char **argv);
