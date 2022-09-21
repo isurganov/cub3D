@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:06:47 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/19 14:27:01 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/21 12:58:57 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ int	render_next_frame(t_game *game)
 	draw_floor_ceiling(game);
 	//draw_surroundings(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
+	
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[NO], 5, 5);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[SO], 105, 5);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[WE], 205, 5);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[EA], 305, 5);
+
 	return (EXIT_SUCCESS);
 }

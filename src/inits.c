@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:51:09 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/19 13:21:09 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/21 10:21:02 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	ft_init_data(t_game *game)
 	game->img.img = NULL;
 	game->img.addr = NULL;
 	game->map.map = NULL;
+	game->map.north_sprite = NULL;
+	game->map.south_sprite = NULL;
+	game->map.west_sprite = NULL;
+	game->map.east_sprite = NULL;
 	game->map.ceiling = 5555;	//-1
 	game->map.floor = 8547;		//-1
 }
