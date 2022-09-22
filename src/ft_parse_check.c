@@ -6,11 +6,16 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:06:29 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/22 18:53:44 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 21:12:07 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
+static void ft_check_player(t_game *game)
+{
+    
+}
 
 void ft_checker(t_game *game)
 {
@@ -23,7 +28,7 @@ void ft_checker(t_game *game)
         ft_mistake(BAD_LOAD_NSWE);
     if (game->map.floor == -1 ||
         game->map.ceiling == -1)
-         ft_mistake(BAD_LOAD_FC);
-    // ft_check_player();
-    // ft_check_close_map()
+        ft_mistake(BAD_LOAD_FC);
+    //ft_check_player(game);
+    ft_check_close_map(game);
 } 

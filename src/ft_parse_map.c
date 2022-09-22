@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:55:34 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/22 18:49:49 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 21:11:49 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	ft_pars_map(char *line, int i, t_game *game)
 {
     int		h;
 
-	h = 0;
+	h = -1;
     line = del_n(line);
 	game->map.height++;
 	game->map.map_copy = (char **) ft_calloc(game->map.height + 1, sizeof(char *));
 	if (!game->map.map_copy)
 		ft_mistake("Malloc fail in ft_pars_map\n");
-	while (h++ < (game->map.height - 1))
+	while (++h < (game->map.height - 1))
 		game->map.map_copy[h] = ft_strdup(game->map.map[h]);
 	if (check_line_symbols(line, i))
 		game->map.map_copy[h] = ft_strdup(line);
@@ -42,5 +42,5 @@ void	ft_pars_map(char *line, int i, t_game *game)
 	if (game->map.height > 1)
 		free_map(game->map.map);
 	game->map.map = game->map.map_copy;
-	printf("map = %s\n", game->map.map[h]);
+	printf("map[%2.d] = %s\n", h, game->map.map[h]);
 }
