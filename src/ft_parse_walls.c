@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:06:04 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 12:56:13 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 16:10:34 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*addr_to_path(t_game *game, char *path, int index)
 	return (img_adr);
 }
 
-static char	*del_n(char *line)
+char	*del_n(char *line)
 {
 	int		i;
 	char	*tmp;

@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:23:20 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/21 13:50:15 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 16:19:46 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	rgb(char *line)
 	colors = ft_split(line, ',');
 	if (!colors)
 		ft_mistake("Malloc fail in rgb\n");
-    printf("%s\n", colors[0]);
 	rgb = torgb(ft_atoi(colors[0]),
         ft_atoi(colors[1]),
         ft_atoi(colors[2]));

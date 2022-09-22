@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:43:07 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 18:38:58 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,26 +68,29 @@ enum	pos
 	EA
 };
 
+//	View of mlx win //
 typedef struct s_data
 {
 	void	*img;
 	void	*img_t[5];
 	char	*addr;
-	int		bits_per_pixel;		//bpp
-	int		line_length;		//ll
+	int		bits_per_pixel;
+	int		line_length;
 	int		endian;
 }	t_data_img;
 
-
+//	View of actual map //
 typedef struct s_map
 {
 	char	**map;
+	char	**map_copy;
+	int		height;
 	char	*north_sprite;
 	char	*south_sprite;
 	char	*west_sprite;
 	char	*east_sprite;
-    int		floor;      //color code
-	int		ceiling;    //color code
+    int		floor;
+	int		ceiling;
 }	t_map;
 
 typedef struct s_game
@@ -107,11 +110,10 @@ void	free_map(char **arr);
 void	draw_floor_ceiling(t_game *game);
 void	ft_parcer(t_game *game, int file_descriptor);
 
-//	ft_parce_walls.c //
+char	*del_n(char *line);
 void	ft_pars_walls(char *line, t_game *game);
-
-//	ft_parse_fc.c //
 void    ft_pars_floor_ceiling(char *line, t_game *game);
+void	ft_pars_map(char *line, int i, t_game *game);
 
 //	ft_parce_check.c //
 void ft_checker(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:47:40 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:54:05 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 18:55:07 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void	single_line_parsing(char *line, t_game *game)
 	if (ft_strchr("NSWE", line[i]))
 		ft_pars_walls(line + i, game);
 	if (ft_strchr("FC", line[i]))
-		ft_pars_floor_ceiling(line, game);
+		ft_pars_floor_ceiling(line + i, game);
 	if (ft_strchr("01", line[i]))
-		//ft_pars_map(line, game);
+		ft_pars_map(line, i, game);
 	free(line);
 }
 
@@ -52,8 +52,7 @@ void	ft_parcer(t_game *game, int file_descriptor)
 		if (line == NULL)
 			break ;
 	}
-    free(line);
-	//ft_check_player();
-	ft_checker(game);
+    // free(line);
+	ft_checker(game); //
     close (file_descriptor);
 }

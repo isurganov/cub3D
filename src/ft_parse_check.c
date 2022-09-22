@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:06:29 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/21 13:18:40 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/22 18:53:44 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void ft_checker(t_game *game)
 {
+    if (game->map.height == 0)
+		ft_mistake("Empty map\n");
     if (game->map.north_sprite == NULL ||
         game->map.south_sprite == NULL ||
         game->map.west_sprite == NULL ||
@@ -22,7 +24,6 @@ void ft_checker(t_game *game)
     if (game->map.floor == -1 ||
         game->map.ceiling == -1)
          ft_mistake(BAD_LOAD_FC);
-    // if (game->map.height == 0)
-	// 	ft_error("Error: empty map\n");
+    // ft_check_player();
     // ft_check_close_map()
 } 
