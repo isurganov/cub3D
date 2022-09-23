@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:55:34 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/22 21:11:49 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/23 09:09:32 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	ft_pars_map(char *line, int i, t_game *game)
 	if (game->map.height > 1)
 		free_map(game->map.map);
 	game->map.map = game->map.map_copy;
-	printf("map[%2.d] = %s\n", h, game->map.map[h]);
+	printf("map[%2.i] = %s\n", h, game->map.map[h]);
 }

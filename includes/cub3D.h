@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/22 20:38:03 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/23 13:01:50 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define BAD_XPM		"wrong xpm file\n"
 # define BAD_LOAD_NSWE	"NWES didn't load\n"
 # define BAD_LOAD_FC	"FC didn't load\n"
+# define EMPTY_MAP		"Empty map\n"
 
 # define KEY_LEFT			123
 # define KEY_RIGHT			124
@@ -68,7 +69,7 @@ enum	pos
 	EA
 };
 
-//	View of mlx win //
+//	Image of mlx win //
 typedef struct s_data
 {
 	void	*img;
@@ -93,11 +94,32 @@ typedef struct s_map
 	int		ceiling;
 }	t_map;
 
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}	t_point;
+
+typedef struct s_pl
+{
+	t_point	pos;
+	t_point	dir;
+	//int		mouse_x;
+}	t_pl;
+
+typedef struct s_ray
+{
+	t_point	plane;
+	
+}	t_ray;
+
 typedef struct s_game
 {
 	void			*mlx;
 	void			*win;
-
+	
+	t_pl			pl;
+	t_ray			ray;
 	t_data_img		img;
     t_map           map;
 }   t_game;
@@ -127,7 +149,7 @@ void	ft_init_data(t_game *game);
 void	ft_init_win(t_game *game);
 void	ft_init_hooks(t_game *game);
 
-//  stert_draw.c //
+//  img_draw.c //
 void	my_mlx_pixel_put(t_data_img *data, int x, int y, int color);
 void	draw_floor_ceiling(t_game *game);
 int		render_next_frame(t_game *game);

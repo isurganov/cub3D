@@ -6,7 +6,7 @@
 #    By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/22 20:36:25 by ilya             ###   ########.fr        #
+#    Updated: 2022/09/23 13:03:31 by ilya             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC			=	main.c \
 				ft_parse_map.c \
 				cub3D.c \
 				inits.c \
-				start_draw.c \
+				img_draw.c \
+				img_raycast.c \
 				hook_keys.c \
 
 OBJDIR		=	obj
