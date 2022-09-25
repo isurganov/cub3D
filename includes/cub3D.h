@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/23 13:01:50 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 16:14:09 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@
 # define KEY_S 				1
 # define KEY_D 				2
 # define KEY_WIN_CROSS 		17
-# define WIN_WIDTH  800  // 1280 // 1920
-# define WIN_HEIGHT 400 // 720 // 1080
-# define T_WIDTH 64
-# define T_HEIGHT 64
-// # define RS 0.20
-// # define MS 0.25
+# define WIN_WIDTH  		800
+# define WIN_HEIGHT			400
+# define T_WIDTH 			64
+# define T_HEIGHT			64
+# define COEF_ROT			0.2
+# define COEF_STEP			0.25
 
 # define PI				3.14159265
 # define TWO_PI			6.28316530
@@ -92,6 +92,8 @@ typedef struct s_map
 	char	*east_sprite;
     int		floor;
 	int		ceiling;
+	int		x_pl;
+	int		y_pl;
 }	t_map;
 
 typedef struct s_point
@@ -110,16 +112,35 @@ typedef struct s_pl
 typedef struct s_ray
 {
 	t_point	plane;
-	
+	t_point	ray_dir;
+	t_point	dd;
+	t_point	sd;
+	double	camera_x;
+	double	wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		start;
+	int		end;
 }	t_ray;
+
+typedef struct s_texture
+{
+	int		tex_x;
+	int		tex_y;
+	double	tex_pos;
+	double	step;
+}	t_texture;
 
 typedef struct s_game
 {
 	void			*mlx;
 	void			*win;
-	
 	t_pl			pl;
 	t_ray			ray;
+	t_texture		wall;
 	t_data_img		img;
     t_map           map;
 }   t_game;
@@ -127,7 +148,7 @@ typedef struct s_game
 //  fts_errors.c //
 int     ft_mistake(char *arg);
 
-//  ft_parcer.c //
+//  parcer //
 void	free_map(char **arr);
 void	draw_floor_ceiling(t_game *game);
 void	ft_parcer(t_game *game, int file_descriptor);
@@ -149,13 +170,22 @@ void	ft_init_data(t_game *game);
 void	ft_init_win(t_game *game);
 void	ft_init_hooks(t_game *game);
 
-//  img_draw.c //
+//  img_draw //
 void	my_mlx_pixel_put(t_data_img *data, int x, int y, int color);
 void	draw_floor_ceiling(t_game *game);
 int		render_next_frame(t_game *game);
+void	draw_surroundings(t_game *game);
+void	rays_cast(t_game *game, int x);
+void	textures(t_game *game, int x);
 
 //	hook_keys.c //
 int		exit_hook(t_game *game);
 int		key_hook(int key, t_game *game);
+void	hook_w(t_game *game);
+void	hook_a(t_game *game);
+void	hook_s(t_game *game);
+void	hook_d(t_game *game);
+void	hook_left_rotation(t_game *game);
+void	hook_right_rotation(t_game *game);
 
 #endif

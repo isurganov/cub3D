@@ -6,7 +6,7 @@
 #    By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/23 13:03:31 by ilya             ###   ########.fr        #
+#    Updated: 2022/09/25 16:07:20 by ilya             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ SRC			=	main.c \
 				inits.c \
 				img_draw.c \
 				img_raycast.c \
+				img_textures.c \
 				hook_keys.c \
-
+				hook_wasd.c \
+				hook_mouse.c
 OBJDIR		=	obj
 SRCDIR		=	src
 

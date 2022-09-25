@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_draw.c                                       :+:      :+:    :+:   */
+/*   img_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:06:47 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/21 13:15:13 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 15:29:47 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,26 @@ void	draw_floor_ceiling(t_game *game)
 	}
 }
 
+void	draw_surroundings(t_game *game)
+{
+    int vertical_line;
+
+    vertical_line = -1;
+    while (++vertical_line < WIN_WIDTH)
+    {
+        rays_cast(game, vertical_line);
+        textures(game, vertical_line);
+    }
+}
+
 int	render_next_frame(t_game *game)
 {
 	draw_floor_ceiling(game);
-	//draw_surroundings(game);
+	draw_surroundings(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
-	//delete later
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[NO], 5, 5);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[SO], 105, 5);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[WE], 205, 5);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[EA], 305, 5);
-
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[NO], 5, 5);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[SO], 105, 5);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[WE], 205, 5);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_t[EA], 305, 5);
 	return (EXIT_SUCCESS);
 }
