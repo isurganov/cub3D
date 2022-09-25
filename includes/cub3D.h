@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/25 16:14:09 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 17:14:21 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 # define WIN_HEIGHT			400
 # define T_WIDTH 			64
 # define T_HEIGHT			64
-# define COEF_ROT			0.2
+# define COEF_ROT			0.1
 # define COEF_STEP			0.25
 
 # define PI				3.14159265
@@ -106,7 +106,6 @@ typedef struct s_pl
 {
 	t_point	pos;
 	t_point	dir;
-	//int		mouse_x;
 }	t_pl;
 
 typedef struct s_ray
