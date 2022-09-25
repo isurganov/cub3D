@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 09:33:51 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/19 16:32:21 by pleoma           ###   ########.fr       */
+/*   Updated: 2022/09/25 14:51:19 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void ft_cub3D(t_game *game, char **argv)
 {
     ft_init_data(game);
     ft_init_win(game);
-    ft_init_hooks(game);
+    ft_init_hooks(game); //not yet
     ft_parcer(game, ft_open_file(argv));
     mlx_loop_hook(game->mlx, render_next_frame, game);
     mlx_loop(game->mlx);

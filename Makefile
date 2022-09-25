@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
+#    By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/19 16:31:50 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/25 16:07:20 by ilya             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,18 @@ SRC			=	main.c \
 				fts_errors.c \
 				ft_parcer.c \
 				ft_parse_walls.c \
+				ft_parse_check.c \
+				ft_parse_check2.c \
+				ft_parse_fc.c \
+				ft_parse_map.c \
 				cub3D.c \
 				inits.c \
-				start_draw.c \
+				img_draw.c \
+				img_raycast.c \
+				img_textures.c \
 				hook_keys.c \
-
+				hook_wasd.c \
+				hook_mouse.c
 OBJDIR		=	obj
 SRCDIR		=	src
 
