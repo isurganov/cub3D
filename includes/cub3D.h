@@ -1,17 +1,17 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/25 17:41:48 by ilya             ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   cub3D.h											:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: ilya <ilya@student.42.fr>				  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/09/04 11:46:08 by pleoma			#+#	#+#			 */
+/*   Updated: 2022/09/25 19:51:58 by ilya			 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
-#ifndef CUB_3D_H
-# define CUB_3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "../minilibx/mlx.h"
 # include "../libft/libft.h"
@@ -22,11 +22,11 @@
 # include <stdio.h>
 # include <stdbool.h>
 
-# define RED    "\033[0;31m"
+# define RED	"\033[0;31m"
 # define GREEN  "\033[0;32m"
 # define BLUE   "\033[0;34m"
 # define YELW   "\033[1;33m"
-# define WTH    "\033[0;37m"
+# define WTH	"\033[0;37m"
 
 # define BAD_ARGS 		"Use: ./cub3d MAP_NAME.cub\n"
 # define BAD_EXTS 		"Extension must be .cub\n"
@@ -61,7 +61,7 @@
 # define PI				3.14159265
 # define TWO_PI			6.28316530
 
-enum	pos
+enum	e_pos
 {
 	NO,
 	SO,
@@ -90,7 +90,7 @@ typedef struct s_map
 	char	*south_sprite;
 	char	*west_sprite;
 	char	*east_sprite;
-    int		floor;
+	int		floor;
 	int		ceiling;
 	int		x_pl;
 	int		y_pl;
@@ -141,11 +141,11 @@ typedef struct s_game
 	t_ray			ray;
 	t_texture		wall;
 	t_data_img		img;
-    t_map           map;
-}   t_game;
+	t_map			map;
+}	t_game;
 
 //  fts_errors.c //
-int     ft_mistake(char *arg);
+int		ft_mistake(char *arg);
 
 //  parcer //
 void	free_map(char **arr);
@@ -154,11 +154,11 @@ void	ft_parcer(t_game *game, int file_descriptor);
 
 char	*del_n(char *line);
 void	ft_pars_walls(char *line, t_game *game);
-void    ft_pars_floor_ceiling(char *line, t_game *game);
+void	ft_pars_floor_ceiling(char *line, t_game *game);
 void	ft_pars_map(char *line, int i, t_game *game);
 
 //	ft_parce_check.c //
-void 	ft_checker(t_game *game);
+void	ft_checker(t_game *game);
 void	ft_check_close_map(t_game *game);
 
 //  cub_3D.c //
