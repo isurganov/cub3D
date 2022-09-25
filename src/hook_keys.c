@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:58:15 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/25 17:57:32 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 20:32:54 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	exit_hook(t_game *game)
 {
 	printf(GREEN "Exit!\n" WTH);
-	//mlx_destroy_image(game->mlx, game->img.img);
-	//mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_image(game->mlx, game->img.img);
+	mlx_destroy_window(game->mlx, game->win);
 	free_map(game->map.map_copy);
 	free(game->mlx);
 	exit(EXIT_SUCCESS);
