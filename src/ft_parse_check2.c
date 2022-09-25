@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 20:36:17 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/23 09:20:43 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 17:48:44 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	check_map_down(t_game *game)
 	while (game->map.map[game->map.height - 1][j])
 	{
 		if (game->map.map[game->map.height - 1][j] != '1'
-            && game->map.map[game->map.height - 1][j] != ' ')
-            ft_mistake("map last line\n");
+			&& game->map.map[game->map.height - 1][j] != ' ')
+			ft_mistake("map last line\n");
 		j++;
 	}
 }
@@ -30,15 +30,15 @@ static void	check_nearby_symbs(t_game *game, int i, int j)
 {
 	if (i == 0 || j == 0)
 		ft_mistake("Invalid map 1\n");
-	if (!(game->map.map[i - 1][j]) || !(game->map.map[i][j - 1]) || 
-		!(game->map.map[i + 1][j]) || !(game->map.map[i][j + 1]))
+	if (!(game->map.map[i - 1][j]) || !(game->map.map[i][j - 1])
+		|| !(game->map.map[i + 1][j]) || !(game->map.map[i][j + 1]))
 		ft_mistake("Invalid map 2\n");
 	if (game->map.map[i - 1][j] != '1' && game->map.map[i - 1][j] != '0' &&
 		game->map.map[i - 1][j] != '2')
 		ft_mistake("Invalid map 3\n");
 	if (game->map.map[i][j - 1] != '1' && game->map.map[i][j - 1] != '0' &&
 		game->map.map[i][j - 1] != '2')
-		ft_mistake("Invalid map 4\n");//из-за игрока	
+		ft_mistake("Invalid map 4\n");
 	if (game->map.map[i + 1][j] != '1' && game->map.map[i + 1][j] != '0' &&
 		game->map.map[i + 1][j] != '2')
 		ft_mistake("Invalid map 5\n");
@@ -47,7 +47,7 @@ static void	check_nearby_symbs(t_game *game, int i, int j)
 		ft_mistake("Invalid map 6\n");
 }
 
-static void check_relative_pos(t_game *game)
+static void	check_relative_pos(t_game *game)
 {
 	int	i;
 	int	j;

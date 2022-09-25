@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 11:46:08 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/25 17:14:21 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 17:41:48 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ void 	ft_checker(t_game *game);
 void	ft_check_close_map(t_game *game);
 
 //  cub_3D.c //
-void	ft_cub3D(t_game *game, char **argv);
+void	ft_cub3d(t_game *game, char **argv);
 
 //  inits.c //
 void	ft_init_data(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:47:40 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/22 19:28:33 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/25 17:44:32 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i])
@@ -27,7 +27,7 @@ static void	single_line_parsing(char *line, t_game *game)
 	int	i;
 
 	i = 0;
-	while(line[i] == ' ' || line[i] == '\t')
+	while (line[i] == ' ' || line[i] == '\t')
 		i++;
 	if (ft_strchr("NSWE", line[i]))
 		ft_pars_walls(line + i, game);
@@ -41,7 +41,6 @@ static void	single_line_parsing(char *line, t_game *game)
 void	ft_parcer(t_game *game, int file_descriptor)
 {
 	char	*line;
-	int i = 1;
 
 	//gnl leaks?
 	line = get_next_line(file_descriptor);
@@ -52,7 +51,7 @@ void	ft_parcer(t_game *game, int file_descriptor)
 		if (line == NULL)
 			break ;
 	}
-    free(line);
-	ft_checker(game); //
-    close (file_descriptor);
+	free(line);
+	ft_checker(game);
+	close (file_descriptor);
 }
