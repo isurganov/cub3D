@@ -33,6 +33,7 @@ static void	tex_calculations(t_game *game)
 
 static int	texture_dot(t_game *game, int *color)
 {
+	*color = 0;
 	if (game->ray.side == 0)
 	{
 		if (game->ray.ray_dir.x >= 0)

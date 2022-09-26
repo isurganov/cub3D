@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 20:55:39 by ilya              #+#    #+#             */
-/*   Updated: 2022/09/25 20:55:44 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/26 13:58:53 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@
 # define T_HEIGHT			64
 # define COEF_ROT			0.2
 # define COEF_STEP			0.25
-
-# define PI				3.14159265
-# define TWO_PI			6.28316530
 
 enum	e_pos
 {
@@ -144,7 +141,7 @@ typedef struct s_game
 	t_map			map;
 }	t_game;
 
-//  fts_errors.c //
+//  fts_errors //
 int		ft_mistake(char *arg);
 
 //  parcer //
@@ -157,11 +154,11 @@ void	ft_pars_walls(char *line, t_game *game);
 void	ft_pars_floor_ceiling(char *line, t_game *game);
 void	ft_pars_map(char *line, int i, t_game *game);
 
-//	ft_parce_check.c //
+//	ft_parce_check //
 void	ft_checker(t_game *game);
 void	ft_check_close_map(t_game *game);
 
-//  cub_3D.c //
+//  cub_3D //
 void	ft_cub3d(t_game *game, char **argv);
 
 //  inits.c //
@@ -177,7 +174,7 @@ void	draw_surroundings(t_game *game);
 void	rays_cast(t_game *game, int x);
 void	textures(t_game *game, int x);
 
-//	hook_keys.c //
+//	hook_keys //
 int		exit_hook(t_game *game);
 int		key_hook(int key, t_game *game);
 void	hook_w(t_game *game);

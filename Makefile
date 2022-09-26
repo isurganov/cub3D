@@ -6,7 +6,7 @@
 #    By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/04 11:52:31 by pleoma            #+#    #+#              #
-#    Updated: 2022/09/26 13:14:02 by pleoma           ###   ########.fr        #
+#    Updated: 2022/09/26 13:55:59 by pleoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJ_PATH 	=	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.o)))
 #DEP_PATH 	= 	$(addprefix $(OBJDIR)/, $(notdir $(SRC_PATH:.c=.d)))
 
 CC			=	gcc
-FLAGS		=	#-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror
 O_FLAG		=	-O3 #-MD
 MLX_FLAG	=	-Lminilibx -lmlx -framework OpenGL -framework AppKit -lz
 
@@ -73,7 +73,9 @@ fclean			:	clean
 re				:  fclean all
 
 test			:	$(NAME)
-#		leaks --atExit -- ./cub3D qqq
+		@echo "Test with wrong map"
+		leaks --atExit -- ./cub3D qqq
+		@echo "Test with correct map"
 		leaks --atExit -- ./cub3D maps/default.cub
 
 .PHONY			: all clean fclean re
