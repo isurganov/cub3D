@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_keys.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pleoma <pleoma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:58:15 by pleoma            #+#    #+#             */
-/*   Updated: 2022/09/25 20:32:54 by ilya             ###   ########.fr       */
+/*   Updated: 2022/09/26 13:21:06 by pleoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	exit_hook(t_game *game)
 {
-	printf(GREEN "Exit!\n" WTH);
+	printf(RED "Exit!\n" WTH);
 	mlx_destroy_image(game->mlx, game->img.img);
 	mlx_destroy_window(game->mlx, game->win);
 	free_map(game->map.map_copy);

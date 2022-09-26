@@ -31,7 +31,7 @@ static void	tex_calculations(t_game *game)
 			+ game->ray.line_height / 2) * game->wall.step;
 }
 
-static int	texture_dot(t_game *game, unsigned int *color)
+static int	texture_dot(t_game *game, int *color)
 {
 	if (game->ray.side == 0)
 	{
@@ -57,7 +57,7 @@ static int	texture_dot(t_game *game, unsigned int *color)
 void	textures(t_game *game, int x)
 {
 	int				y;
-	unsigned int	color;
+	int				color;
 
 	tex_calculations(game);
 	y = game->ray.start;
